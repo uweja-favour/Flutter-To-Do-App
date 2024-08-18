@@ -15,40 +15,35 @@ class _TodoPageState extends State<TodoPage> {
 
   TextEditingController myController = TextEditingController();
 
-  //
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   todos = _myBox.get('todos', defaultValue: <String>["wash the car", "clean the house"])!.cast<String>();
-  //
-  // }
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   List<String>? storedTodos = _myBox.get('todos')?.cast<String>();
-  //   if (storedTodos != null && storedTodos.isNotEmpty) {
-  //     todos = storedTodos;
-  //   } else {
-  //     todos = ["wash the car", "clean the house"];
-  //     _myBox.put('todos', todos);
-  //   }
-  // }
-
+  
   @override
   void initState() {
     super.initState();
-    print("Retrieving todos from Hive");
     List<String>? storedTodos = _myBox.get('todos')?.cast<String>();
-    print("Stored todos: $storedTodos");
     if (storedTodos != null && storedTodos.isNotEmpty) {
       todos = storedTodos;
     } else {
       todos = ["wash the car", "clean the house"];
       _myBox.put('todos', todos);
     }
-    print("Final todos list: $todos");
   }
+
+  // DEBUG
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   print("Retrieving todos from Hive");
+  //   List<String>? storedTodos = _myBox.get('todos')?.cast<String>();
+  //   print("Stored todos: $storedTodos");
+  //   if (storedTodos != null && storedTodos.isNotEmpty) {
+  //     todos = storedTodos;
+  //   } else {
+  //     todos = ["wash the car", "clean the house"];
+  //     _myBox.put('todos', todos);
+  //   }
+  //   print("Final todos list: $todos");
+  // }
 
   void addToDo() {
     setState(() {
