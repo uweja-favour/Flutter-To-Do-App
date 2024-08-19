@@ -26,14 +26,10 @@ class _LoginPageState extends State<LoginPage> {
     super.initState();
 
     String getPassWord = _myBox.get('password', defaultValue: '0000');
-    if (getPassWord != null) {
       passWord = getPassWord;
-    }
 
-    bool? accountExist = _myBox.get('haveAnAccount');
-    if (accountExist.runtimeType == bool && accountExist != null) {
+    bool accountExist = _myBox.get('haveAnAccount', defaultValue: false);
       haveAnAccount = accountExist;
-    }
 
   }
 
