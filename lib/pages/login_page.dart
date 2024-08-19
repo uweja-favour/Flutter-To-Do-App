@@ -86,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 11.0),
+                padding: const EdgeInsets.only(top: 15.0),
                 child: ElevatedButton(
                     onPressed: () {
                     // submit password for verification
@@ -95,18 +95,18 @@ class _LoginPageState extends State<LoginPage> {
                   child: const Text('Submit', style: TextStyle(color: Colors.black, fontWeight: FontWeight.normal))
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(
-                      context,
-                      'signuppage'
-                    );
-                },
-                child: haveAnAccount ? const Text("") :  const Padding(
-                  padding: EdgeInsets.only(top: 18.0),
-                  child: Text("Don't have an account? Sign Up", style: TextStyle(color: Colors.blueAccent),),
+              if (!haveAnAccount) GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/signuppage');
+                  },
+                  child: const Padding(
+                    padding: EdgeInsets.only(top: 15.0),
+                    child: Text(
+                      "Don't have an account? Sign Up",
+                      style: TextStyle(color: Colors.blueAccent, fontSize: 13),
+                    ),
+                  ),
                 ),
-              ),
 
             ],
           ),
