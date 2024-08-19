@@ -69,27 +69,23 @@ class _SignupPageState extends State<SignupPage> {
               GestureDetector(
                 onTap: () {
                   Navigator.pop(context);
-                  Navigator.pushNamed(
-                      context,
-                      '/loginpage'
-                  );
+                  Navigator.pushReplacementNamed(context, '/loginpage');
                 },
                 child: const Padding(
                   padding: EdgeInsets.only(top: 18.0),
                   child: Text("Already have an account? Sign In", style: TextStyle(color: Colors.blueAccent),),
                 ),
               ),
-
             ],
           ),
-        ),
+      ),
     );
   }
 
   void submitPassword() {
     newPassword = signUpTextEditingController.text;
     signUpTextEditingController.clear();
-    if (newPassword.isNotEmpty && newPassword != null) {
+    if (newPassword.isNotEmpty) {
       _myBox.put('password', newPassword);
     }
     bool haveAnAccount = true;
