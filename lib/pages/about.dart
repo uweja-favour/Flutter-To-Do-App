@@ -21,73 +21,51 @@ class _AboutPageState extends State<AboutPage> {
       drawer: Drawer(
         child: Column(
           children: [
-            const DrawerHeader(
-              child: Icon(
-                Icons.abc_outlined,
-                size: 90,
-              ),),
-            Column(
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    if (currentRoute != '/homepage') {
-                      Navigator.pop(context);
-                      Navigator.pushNamed(context, '/homepage');
-                    }
-                  },
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            left: 11.5, top: 11, bottom: 11),
-                        child: Icon(
-                          Icons.home,
-                          color: Colors.deepPurple[300],
-                          size: 30,
-                        ),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 8.0, top: 11, bottom: 11),
-                        child: Text(
-                          'H O M E',
-                          style: TextStyle(fontSize: 24),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+            // Drawer Header with user profile
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.deepPurple[300],
+              ),
+              child: const Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Center(child: Icon(Icons.abc, size: 90, color: Colors.white,))
+                ],
+              ),
+            ),
 
-                GestureDetector(
-                  onTap: () {
-                    if (currentRoute != '/aboutpage') {
-                      Navigator.pop(context);
-                      Navigator.pushNamed(context, '/aboutpage');
-                    }
-                  },
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            left: 11.5, top: 11, bottom: 11),
-                        child: Icon(Icons.question_answer_rounded,
-                            color: Colors.deepPurple[300], size: 26),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 8.0, top: 11, bottom: 11),
-                        child: Text(
-                          'A B O U T',
-                          style: TextStyle(fontSize: 24,
-                            color: currentRoute == '/aboutpage' ? Colors.deepPurple[300] : Colors.black,),
-                        ),
-                      ),
-                    ],
+            // Navigation Items
+            Expanded(
+              child: ListView(
+                padding: EdgeInsets.zero,
+                children: [
+                  ListTile(
+                    leading: Icon(Icons.home, color: Colors.deepPurple[300]),
+                    title: const Text('Home', style: TextStyle(fontSize: 18)),
+                    onTap: () {
+                      if (currentRoute != '/homepage') {
+                        Navigator.pop(context);
+                        Navigator.pushNamed(context, '/homepage');
+                      }
+                    },
                   ),
-                ),
-              ],
-            )
+                  ListTile(
+                    leading: Icon(Icons.question_answer_rounded, color: Colors.deepPurple[300]),
+                    title: const Text('About', style: TextStyle(fontSize: 18)),
+                    onTap: () {
+                      if (currentRoute != '/aboutpage') {
+                        Navigator.pop(context);
+                        Navigator.pushNamed(context, '/aboutpage');
+                      }
+                    },
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
+
 
       // body: Column(
       //   mainAxisAlignment: MainAxisAlignment.center,
