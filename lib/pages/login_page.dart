@@ -54,8 +54,8 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
       body: Center(
-        child: Expanded(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const Icon(Icons.abc, size: 90,),
 
@@ -110,7 +110,6 @@ class _LoginPageState extends State<LoginPage> {
 
             ],
           ),
-        ),
       ),
     );
   }

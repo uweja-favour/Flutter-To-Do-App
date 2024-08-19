@@ -34,7 +34,6 @@ class _SignupPageState extends State<SignupPage> {
       ),
 
       body: Center(
-        child: Expanded(
           child: Column(
             children: [
               const Icon(Icons.abc, size: 90,),
@@ -83,7 +82,6 @@ class _SignupPageState extends State<SignupPage> {
             ],
           ),
         ),
-      ),
     );
   }
 
