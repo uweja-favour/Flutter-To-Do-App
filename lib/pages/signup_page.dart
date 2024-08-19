@@ -35,6 +35,7 @@ class _SignupPageState extends State<SignupPage> {
 
       body: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const Icon(Icons.abc, size: 90,),
 
