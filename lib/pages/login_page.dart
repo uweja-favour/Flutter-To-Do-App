@@ -24,12 +24,10 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
     super.initState();
+    // Fetch password and account existence status from Hive
+    passWord = _myBox.get('password', defaultValue: '0000');
 
-    String getPassWord = _myBox.get('password', defaultValue: '0000');
-      passWord = getPassWord;
-
-    bool accountExist = _myBox.get('haveAnAccount', defaultValue: false);
-      haveAnAccount = accountExist;
+    haveAnAccount = _myBox.get('haveAnAccount', defaultValue: false);
 
   }
 
@@ -37,8 +35,7 @@ class _LoginPageState extends State<LoginPage> {
     String enteredPassword = loginTextEditingController.text;
     loginTextEditingController.clear();
     if (enteredPassword == passWord || enteredPassword == '0000') {
-      Navigator.pop(context);
-      Navigator.pushNamed(context, '/homepage');
+      Navigator.pushReplacementNamed(context, '/homepage');
     } else {
       setState(() {
         incorrectPassword = 'Incorrect Password';
@@ -79,6 +76,13 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(25),
                     ),
                   ),
+                  onChanged: (text) {
+                    if (incorrectPassword != null) {
+                      setState(() {
+                        incorrectPassword = null;
+                      });
+                    }
+                  }
                 ),
               ),
               Padding(
